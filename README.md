@@ -37,7 +37,7 @@ ship-registry/
 
 ## Запуск PostgreSQL
 
-Команды выполнять из папки `Source`.
+Команды выполнять из корня репозитория.
 
 ```powershell
 Copy-Item .env.example .env
@@ -68,7 +68,7 @@ Swagger UI: `http://localhost:3000/api/docs`.
 
 ## Запуск frontend
 
-Во втором терминале из папки `Source`:
+Во втором терминале из корня репозитория:
 
 ```powershell
 cd frontend
@@ -230,7 +230,6 @@ npm run build
 Полный запуск проекта:
 
 ```powershell
-cd Source
 Copy-Item .env.example .env
 docker compose up -d
 cd backend
@@ -241,7 +240,7 @@ npm run start:dev
 Во втором терминале:
 
 ```powershell
-cd Source/frontend
+cd frontend
 npm install
 npm run dev
 ```
