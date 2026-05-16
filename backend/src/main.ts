@@ -3,10 +3,11 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './filters/http-exception.filter';
-import { LoggingInterceptor } from './interceptors/logging.interceptor';
+import { httpLoggingMiddleware } from './middleware/http-logging.middleware';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(httpLoggingMiddleware);
 
   app.enableCors({
     origin: true,
@@ -21,7 +22,6 @@ async function bootstrap() {
     }),
   );
   app.useGlobalFilters(new HttpExceptionFilter());
-  app.useGlobalInterceptors(new LoggingInterceptor());
 
   const config = new DocumentBuilder()
     .setTitle('ShipRegistry API')

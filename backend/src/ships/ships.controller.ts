@@ -11,7 +11,7 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
@@ -28,6 +28,12 @@ export class ShipsController {
   constructor(private readonly shipsService: ShipsService) {}
 
   @Get()
+  @ApiQuery({
+    name: 'search',
+    required: false,
+    type: String,
+    description: 'Поиск по названию или IMO-номеру корабля',
+  })
   @Roles(UserRole.ADMIN, UserRole.DISPATCHER, UserRole.VIEWER)
   findAll(@Query('search') search?: string) {
     return this.shipsService.findAll(search);
