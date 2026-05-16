@@ -20,32 +20,20 @@ ShipRegistry - учебное клиент-серверное приложени
 - Авторизация: JWT + роли
 - Клиентское хранение: LocalStorage
 
-## Структура проекта
+## Структура проекта в репозитории
 
 ```text
-Source/
-├── backend/                 NestJS API
-│   └── src/
-│       ├── auth/            login, JWT, guards, decorators
-│       ├── entities/        TypeORM-сущности
-│       ├── ships/           CRUD кораблей
-│       ├── voyages/         CRUD рейсов
-│       ├── ports/           просмотр портов
-│       ├── captains/        просмотр капитанов
-│       ├── maintenance-records/ просмотр обслуживания
-│       └── memory-users/    учебные in-memory endpoints /users
-├── frontend/                React-приложение
-│   └── src/
-│       ├── api/             fetch-клиент
-│       ├── components/      Layout и формы
-│       ├── pages/           страницы приложения
-│       ├── types/           TypeScript-типы
-│       └── utils/           LocalStorage helpers
-├── database/init.sql        SQL-схема, данные, views, functions, procedures, triggers
-├── docker-compose.yml       PostgreSQL
-├── .env.example             пример переменных окружения
+ship-registry/
+├── backend/
+├── frontend/
+├── database/
+├── docker-compose.yml
+├── README.md
+├── .env.example
 └── .gitignore
 ```
+
+В архиве для сдачи в Moodle исходный код помещен в каталог Source в соответствии с требованиями курсовой работы.
 
 ## Запуск PostgreSQL
 
